@@ -10,3 +10,26 @@ export function createCubeCSSClass(vars: Props_CubeCSS, extra: Props_CubeCSS): s
         [ ${propOrDefault(vars.compostClass, '')} ${propOrDefault(extra.compostClass, '')} ] 
         [ ${propOrDefault(vars.utilClass, '')} ${propOrDefault(extra.utilClass, '')} ]`;
 }
+
+/**
+ * @param e
+ * @param whitelist - Ignores element with same className
+*/
+export function toggleDropdowns<T extends Event>(e: T, whitelist: string) {
+    e.stopPropagation();
+
+    const target = e.target as HTMLElement;
+    const dropdowns = document.querySelectorAll('*[data-dropdown-state]');
+
+    // The id of the possibly clicked dropdown
+    const ignoreId = propOrDefault(target.closest('.list')?.id, 'NaE')
+
+    if(!target.classList.contains(whitelist)) {
+        dropdowns.forEach(el => {
+            if(el.id !== ignoreId)
+                el.setAttribute('data-dropdown-state', 'false');
+            else
+                el.setAttribute('data-dropdown-state', 'true');
+        });
+    }
+}

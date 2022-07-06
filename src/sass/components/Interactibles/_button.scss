@@ -13,3 +13,15 @@
         $background-on-hov: rgba(0 0 0 / 0.35),
     );
 }
+
+.button[data-variant='select'] {
+    @include create-button(
+        $background: $select-background,
+        $clr-border: $select-border-color,
+        $background-on-hov: $select-border-color,
+    );
+
+    & > *:not(.dropdown) {
+        pointer-events: none;
+    }
+}

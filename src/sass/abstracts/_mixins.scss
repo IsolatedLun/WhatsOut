@@ -11,6 +11,7 @@
     $font-size: $button-font-size-default,
     $color: $button-color-default,
     $border-radius: $button-border-radius-default,
+    $clr-border: $button-border-color-default,
     $background-on-hov: $button-background-default,
     $color-on-hov: $button-color-default,
     $transition: $button-transition-default
@@ -40,12 +41,15 @@
     $box-shadow-on-hov: $input-box-shadow-default-hov,
     $border-color-on-hov: $input-border-color-default-hov,
     $border: $input-border-default,
+    $border-radius: $input-border-radius-default,
     $transition: $input-transition-default
 ) 
 {
     padding: $padding;
     background-color: $background;
+    
     border: $border;
+    border-radius: $border-radius;
 
     transition: $transition;
 

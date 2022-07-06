@@ -1,4 +1,6 @@
 .main-container {
+    display: grid;
+    grid-template-columns: 30% 70%;
+
     max-width: var(--size-container-main);
-    margin-inline: auto;
 }

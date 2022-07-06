@@ -73,7 +73,7 @@ video {
 
 :focus,
 :target {
-    outline: 2px solid var(--clr-text-400);
+    outline: 2px solid transparent;
     outline-offset: 4px;
 
     border-radius: inherit;
@@ -86,4 +86,8 @@ video {
 
 [class*='grid'] {
     display: grid;
+}
+
+[data-hide='true'] {
+    display: none !important;
 }

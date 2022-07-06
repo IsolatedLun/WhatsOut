@@ -1,0 +1,1 @@
+export const ICON_DUMBBELL = '\uf44b';

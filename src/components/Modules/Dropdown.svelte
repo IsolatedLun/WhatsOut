@@ -7,14 +7,14 @@
         utilClass: '',
         compostClass: '',
     };
-    export let variant = 'default';
+    export let dropdownState = false;
 </script>
 
-<button 
-    class={createCubeCSSClass(cubeClass, { compostClass: 'button' })}
-    
-    data-variant={variant}
-    on:click
+<ul 
+    class={createCubeCSSClass(cubeClass, { 
+    compostClass: 'dropdown', utilClass: 'flex-direction-column gap-1 border-radius-cubed' 
+    })}
+    data-dropdown-state={dropdownState}
     >
     <slot></slot>
-</button>
+</ul>

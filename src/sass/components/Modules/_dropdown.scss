@@ -1,0 +1,19 @@
+@use '../../abstracts/' as *;
+
+.dropdown {
+    padding: $dropdown-padding;
+    background-color: $dropdown-background;
+    border: 1px solid $dropdown-border-color;
+
+    &:is([data-dropdown-state='false']) {
+        display: none;
+    }
+
+    li {
+        padding: $dropdown-item-padding;
+    }
+
+    li:is(:hover) {
+        background-color: $dropdown-color-on-hov;
+    }
+}

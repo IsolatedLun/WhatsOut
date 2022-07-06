@@ -1,0 +1,33 @@
+@use '../../abstracts/' as *;
+
+.input-container {
+
+    .input:not([data-primary]),
+    .input[data-variant='default'] {
+        @include create-input();
+    }
+
+    label {
+        padding-inline: 0.5em;
+        top: 50%;
+        left: $input-label-left-position;
+
+        transform: translate(-50%, -50%);
+        transition: transform 95ms ease-in-out;
+
+        z-index: 999;
+    }
+
+    &:focus-within {
+        label {
+            transform: translate(-50%, -184%);
+            background-color: var(--clr-background-400);
+        }
+    }
+
+    .input:not(:placeholder-shown) + label {
+        transform: translate(-50%, -184%);
+        background-color: var(--clr-background-400);
+    }
+
+}

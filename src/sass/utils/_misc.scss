@@ -60,6 +60,14 @@
     overflow: auto;
 }
 
+.rotate-angled-pos {
+    rotate: 45deg;
+}
+
+.whitespace-nowrap {
+    white-space: nowrap;
+}
+
 // Colors
 .clr-patreon-400 {
     color: var(--clr-patreon-400);

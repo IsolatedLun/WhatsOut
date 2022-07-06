@@ -9,38 +9,38 @@ $clr-body: var(--clr-background-400);
 // Navbar
 $clr-navbar: var(--clr-background-500);
 
+// Selects
+$select-background: var(--clr-select-400);
+$select-border-color: var(--clr-select-500);
+
+// Dropdowns
+$dropdown-padding: 0.25em 0;
+$dropdown-item-padding: 0.35em 0.65em;
+$dropdown-background: var(--clr-select-400);
+$dropdown-border-color: var(--clr-select-500);
+$dropdown-color-on-hov: var(--clr-input-border-hov);
+
 // Button
-$button-padding-default: 0.45em 1em;
+$button-padding-default: 0.25em 0.65em;
 $button-font-size-default: var(--fs-400);
 $button-background-default: var(--clr-button-400);
 $button-background-default-on-hov: var(--clr-button-500);
 $button-color-default: var(--clr-text-400);
 $button-border-radius-default: $border-radius-cubed;
+$button-border-color-default: var(--clr-button-500);
 $button-transition-default: 
     background-color 95ms ease-in-out, 
     color 95ms ease-in-out, 
     transform 95ms ease-in-out;
 
-$button-control-background: var(--clr-text-muted-hov);
-$button-control-color: var(--clr-text-muted);
-$button-control-background-on-hov: var(--clr-active-hover);
-$button-cotrol-color-on-hov: var(--clr-active-400);
-
-$button-background-close: var(--clr-close-400);
-$button-background-close-hover: var(--clr-close-500);
-
-$buttonWindow-padding: 0.1em;
-
 // Input
-$input-padding-default: 0.25em 0.5em;
-$input-background-default: var(--clr-background-300);
+$input-padding-default: 0.5em 0.65em;
+$input-background-default: var(--clr-input-400);
 $input-color-default: var(--clr-text-400);
-$input-border-default: 2px solid var(--clr-input-border);
-$input-border-color-default-hov: var(--clr-input-border-color);
+$input-border-default: 2px solid var(--clr-input-500);
+$input-border-radius-default: $border-radius-cubed;
 $input-box-shadow-default-hov: 0 0 0px 3px var(--clr-input-shadow);
+$input-border-color-default-hov: var(--clr-input-border-hov);
 $input-transition-default: background-color 95ms ease-in-out, color 95ms ease-in-out;
 
-// Smooth Bar
-$smoothBar-width: 100%;
-$smoothBar-height: 2px;
-$smoothBar-duration: 1.65s;
+$input-label-left-position: 60px;
