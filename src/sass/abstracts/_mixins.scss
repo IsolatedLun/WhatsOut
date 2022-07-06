@@ -1,0 +1,57 @@
+@use './tokens' as *;
+
+@mixin pseudo-element($content: '') {
+    content: $content;
+    position: absolute;
+}
+
+@mixin create-button(
+    $padding: $button-padding-default,
+    $background: $button-background-default,
+    $font-size: $button-font-size-default,
+    $color: $button-color-default,
+    $border-radius: $button-border-radius-default,
+    $background-on-hov: $button-background-default,
+    $color-on-hov: $button-color-default,
+    $transition: $button-transition-default
+) 
+{   
+    font-size: $font-size;
+    padding: $padding;
+    background-color: $background;
+    color: $color;
+
+    border-radius: $border-radius;
+
+    letter-spacing: 1px;
+
+    transition: $transition;
+
+    &:is(:hover, :active, [data-active='true']) {
+        background-color: $background-on-hov;
+        color: $color-on-hov;
+    }
+}
+
+@mixin create-input(
+    $padding: $input-padding-default,
+    $background: $input-background-default,
+    $background-on-hov: $input-background-default,
+    $box-shadow-on-hov: $input-box-shadow-default-hov,
+    $border-color-on-hov: $input-border-color-default-hov,
+    $border: $input-border-default,
+    $transition: $input-transition-default
+) 
+{
+    padding: $padding;
+    background-color: $background;
+    border: $border;
+
+    transition: $transition;
+
+    &:is(:hover, :focus) {
+        border-color: $border-color-on-hov;
+        box-shadow: $box-shadow-on-hov;
+        background-color: $background-on-hov;
+    }
+}

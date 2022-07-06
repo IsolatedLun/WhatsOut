@@ -1,0 +1,19 @@
+$colors-dark: (
+   background: (
+      '400': hsl(210 13% 9%),
+      '500': hsl(210 13% 12%),
+   ),
+
+   text: (
+    '400': hsl(0 0 92%),
+    'muted': hsl(0 0 68%),
+    'muted-hov': hsl(0 0 50% / 0.24),
+   ),
+
+   button: (
+      '400': hsl(142 85% 35%),
+      '500': hsl(142 85% 40%),
+   )
+);
+
+$active-theme: $colors-dark;

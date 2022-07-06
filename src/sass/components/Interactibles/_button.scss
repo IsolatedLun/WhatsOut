@@ -1,0 +1,15 @@
+@use '../../abstracts/' as *;
+
+.button:not([data-variant]),
+.button[data-variant='default'] {
+    @include create-button($background-on-hov: $button-background-default-on-hov);
+}
+
+.button[data-variant='option'] {
+    @include create-button(
+        $padding: 0.25em 0.5em,
+        $background: rgba(0 0 0 / 0.5),
+        $border-radius: 100vw,
+        $background-on-hov: rgba(0 0 0 / 0.35),
+    );
+}
