@@ -1,9 +1,10 @@
 export interface Props_Exercise {
+    id: number;
     name: string;
     
-    set: number;
+    sets: number;
     reps: number;
     weight: number;
 
-    conversion: [string, string];
+    conversion: string;
 }

@@ -25,3 +25,27 @@
         pointer-events: none;
     }
 }
+
+.button[data-variant='red'] {
+    @include create-button(
+        $background: $button-background-red,
+        $background-on-hov: $button-background-red-on-hov
+    )
+}
+
+.button[data-variant='blue'] {
+    @include create-button(
+        $background: $button-background-blue,
+        $background-on-hov: $button-background-blue-on-hov
+    )
+}
+
+// Secondaries
+.button[data-secondary-variant='padding-thick'] {
+    padding: $button-thick-padding;
+}
+
+.button[data-secondary-variant='dashed'] {
+    background-color: transparent;
+    border-style: dashed;
+}

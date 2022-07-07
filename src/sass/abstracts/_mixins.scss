@@ -17,11 +17,16 @@
     $transition: $button-transition-default
 ) 
 {   
+    &:not([data-secondary-variant*='padding-']) {
+        padding: $padding;
+    }
+
     font-size: $font-size;
-    padding: $padding;
     background-color: $background;
     color: $color;
 
+    border-width: 2px;
+    border-color: $background-on-hov;
     border-radius: $border-radius;
 
     letter-spacing: 1px;
@@ -47,6 +52,7 @@
 {
     padding: $padding;
     background-color: $background;
+    width: 100%;
     
     border: $border;
     border-radius: $border-radius;

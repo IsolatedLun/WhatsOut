@@ -1,0 +1,11 @@
+@use '../abstracts/' as *;
+
+.user {
+    background-color: var(--clr-background-500);
+
+    .user__img-container {
+        width: $userImage-width;
+        aspect-ratio: 1;
+        background-color: $userImage-background;
+    }
+}

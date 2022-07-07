@@ -12,7 +12,7 @@
 
 <ul 
     class={createCubeCSSClass(cubeClass, { 
-    compostClass: 'dropdown', utilClass: 'flex-direction-column gap-1 border-radius-cubed' 
+    compostClass: 'dropdown', utilClass: 'flex-direction-column border-radius-cubed' 
     })}
     data-dropdown-state={dropdownState}
     >

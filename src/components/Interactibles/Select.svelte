@@ -2,17 +2,22 @@
     import Dropdown from "../Modules/Dropdown.svelte";
     import Button from "./Button.svelte";
     import { createEventDispatcher } from 'svelte';
+    import Icon from "../Modules/Icon.svelte";
+    import { ICON_CARET_DOWN } from "../../consts";
 
     function selectValue(val: string) {
         dispatch('message', {
             text: val
         })
+
+        selected = val;
     }
 
     export let list: string[] = [''];
     
     const dispatch = createEventDispatcher();
     let dropdownState = false;
+    let selected = list[0];
 </script>
 
 <Button 
@@ -21,8 +26,7 @@
     variant='select'
     >
     <p class="[ fs-400 flex align-items-center gap-1 ]">
-        Type 
-        <span class="[ fs-600 icon ]">{'\uf0d7'}</span>
+        Type: {selected} <Icon>{ ICON_CARET_DOWN }</Icon>
     </p>
 
     <Dropdown 
@@ -30,7 +34,7 @@
         dropdownState={dropdownState}
         >
         {#each list as item}
-            <li>
+            <li on:click={() => selectValue(item)}>
                 <Button 
                     on:click={() => selectValue(item)}
                     variant='empty' 

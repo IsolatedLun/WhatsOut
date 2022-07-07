@@ -10,7 +10,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 10rem;
+    font: inherit;
 }
 
 body {
@@ -20,7 +20,7 @@ body {
     color: var(--clr-text-400);
     background-color: $clr-body;
 
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 h1,
@@ -79,6 +79,15 @@ video {
     border-radius: inherit;
 }
 
+details > summary {
+    list-style: none;
+    cursor: pointer;
+}
+
+details > summary::marker {
+    display: none;
+}
+
 // Misc
 [class*='flex'] {
     display: flex;
@@ -90,4 +99,9 @@ video {
 
 [data-hide='true'] {
     display: none !important;
+}
+
+[data-work-condition='false'] {
+    opacity: 0.66;
+    pointer-events: none;
 }

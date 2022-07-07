@@ -8,17 +8,13 @@
         compostClass: '',
     };
     export let variant = 'default';
-    export let secondaryVariant = 'default';
-    export let workCondition = true;
 </script>
 
-<button 
-    class={createCubeCSSClass(cubeClass, { compostClass: 'button' })}
+<span 
+    class={createCubeCSSClass(cubeClass, { compostClass: 'icon' })}
     
     data-variant={variant}
-    data-secondary-variant={secondaryVariant}
-    data-work-condition={workCondition}
     on:click
     >
     <slot></slot>
-</button>
+</span>

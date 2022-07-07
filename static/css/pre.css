@@ -891,15 +891,29 @@
   background-color: var(--clr-background-500);
 }
 
+.user {
+  background-color: var(--clr-background-500);
+}
+.user .user__img-container {
+  width: 14em;
+  aspect-ratio: 1;
+  background-color: black;
+}
+
 .under-border {
   border-bottom: 1px solid var(--clr-border-muted);
   padding-block-end: 0.45em;
 }
 
+.exercise {
+  background-color: var(--clr-background-500);
+}
+
 .dropdown {
   padding: 0.25em 0;
   background-color: var(--clr-select-400);
-  border: 1px solid var(--clr-select-500);
+  border: 2px solid var(--clr-select-500);
+  z-index: 999;
 }
 .dropdown:is([data-dropdown-state=false]) {
   display: none;
@@ -911,15 +925,45 @@
   background-color: var(--clr-input-border-hov);
 }
 
+.scale-tag {
+  min-width: 7ch;
+  padding: 0.25em 1em;
+  background-color: var(--clr-blue-500);
+}
+.scale-tag .tag__dot {
+  width: 0.75em;
+  aspect-ratio: 1;
+  background-color: red;
+}
+.scale-tag[data-variant=default] {
+  background-color: var(--clr-tag-default);
+  color: var(--clr-tag-text-default);
+}
+.scale-tag[data-variant=default] .tag__dot {
+  background-color: var(--clr-tag-text-default);
+}
+
+.workout {
+  background-color: var(--clr-background-500);
+}
+.workout .workout__exercises {
+  background-color: var(--clr-background-600);
+}
+
 .button:not([data-variant]),
 .button[data-variant=default] {
   font-size: var(--fs-400);
-  padding: 0.25em 0.65em;
   background-color: var(--clr-button-400);
   color: var(--clr-text-400);
+  border-width: 2px;
+  border-color: var(--clr-button-500);
   border-radius: 8px;
   letter-spacing: 1px;
   transition: background-color 95ms ease-in-out, color 95ms ease-in-out, transform 95ms ease-in-out;
+}
+.button:not([data-variant]):not([data-secondary-variant*=padding-]),
+.button[data-variant=default]:not([data-secondary-variant*=padding-]) {
+  padding: 0.25em 0.65em;
 }
 .button:not([data-variant]):is(:hover, :active, [data-active=true]),
 .button[data-variant=default]:is(:hover, :active, [data-active=true]) {
@@ -929,12 +973,16 @@
 
 .button[data-variant=option] {
   font-size: var(--fs-400);
-  padding: 0.25em 0.5em;
   background-color: rgba(0, 0, 0, 0.5);
   color: var(--clr-text-400);
+  border-width: 2px;
+  border-color: rgba(0, 0, 0, 0.35);
   border-radius: 100vw;
   letter-spacing: 1px;
   transition: background-color 95ms ease-in-out, color 95ms ease-in-out, transform 95ms ease-in-out;
+}
+.button[data-variant=option]:not([data-secondary-variant*=padding-]) {
+  padding: 0.25em 0.5em;
 }
 .button[data-variant=option]:is(:hover, :active, [data-active=true]) {
   background-color: rgba(0, 0, 0, 0.35);
@@ -943,12 +991,16 @@
 
 .button[data-variant=select] {
   font-size: var(--fs-400);
-  padding: 0.25em 0.65em;
   background-color: var(--clr-select-400);
   color: var(--clr-text-400);
+  border-width: 2px;
+  border-color: var(--clr-select-500);
   border-radius: 8px;
   letter-spacing: 1px;
   transition: background-color 95ms ease-in-out, color 95ms ease-in-out, transform 95ms ease-in-out;
+}
+.button[data-variant=select]:not([data-secondary-variant*=padding-]) {
+  padding: 0.25em 0.65em;
 }
 .button[data-variant=select]:is(:hover, :active, [data-active=true]) {
   background-color: var(--clr-select-500);
@@ -958,10 +1010,56 @@
   pointer-events: none;
 }
 
+.button[data-variant=red] {
+  font-size: var(--fs-400);
+  background-color: var(--clr-red-400);
+  color: var(--clr-text-400);
+  border-width: 2px;
+  border-color: var(--clr-red-500);
+  border-radius: 8px;
+  letter-spacing: 1px;
+  transition: background-color 95ms ease-in-out, color 95ms ease-in-out, transform 95ms ease-in-out;
+}
+.button[data-variant=red]:not([data-secondary-variant*=padding-]) {
+  padding: 0.25em 0.65em;
+}
+.button[data-variant=red]:is(:hover, :active, [data-active=true]) {
+  background-color: var(--clr-red-500);
+  color: var(--clr-text-400);
+}
+
+.button[data-variant=blue] {
+  font-size: var(--fs-400);
+  background-color: var(--clr-blue-400);
+  color: var(--clr-text-400);
+  border-width: 2px;
+  border-color: var(--clr-blue-500);
+  border-radius: 8px;
+  letter-spacing: 1px;
+  transition: background-color 95ms ease-in-out, color 95ms ease-in-out, transform 95ms ease-in-out;
+}
+.button[data-variant=blue]:not([data-secondary-variant*=padding-]) {
+  padding: 0.25em 0.65em;
+}
+.button[data-variant=blue]:is(:hover, :active, [data-active=true]) {
+  background-color: var(--clr-blue-500);
+  color: var(--clr-text-400);
+}
+
+.button[data-secondary-variant=padding-thick] {
+  padding: 0.5em 0.75em;
+}
+
+.button[data-secondary-variant=dashed] {
+  background-color: transparent;
+  border-style: dashed;
+}
+
 .input-container .input:not([data-primary]),
 .input-container .input[data-variant=default] {
   padding: 0.5em 0.65em;
   background-color: var(--clr-input-400);
+  width: 100%;
   border: 2px solid var(--clr-input-500);
   border-radius: 8px;
   transition: background-color 95ms ease-in-out, color 95ms ease-in-out;
@@ -978,6 +1076,7 @@
   left: 60px;
   transform: translate(-50%, -50%);
   transition: transform 95ms ease-in-out;
+  pointer-events: none;
   z-index: 999;
 }
 .input-container:focus-within label {
@@ -987,6 +1086,10 @@
 .input-container .input:not(:placeholder-shown) + label {
   transform: translate(-50%, -184%);
   background-color: var(--clr-background-400);
+}
+
+.exercise-input-container .exercise__numerics .input-container {
+  max-width: 12ch;
 }
 
 .icon {
@@ -1263,11 +1366,18 @@
 :root {
   --clr-background-400: #0e141b;
   --clr-background-500: #17212b;
+  --clr-background-600: #202e3c;
   --clr-text-400: #ebebeb;
   --clr-text-muted: #adadad;
   --clr-text-muted-hov: rgba(128, 128, 128, 0.24);
   --clr-button-400: #0a7b33;
   --clr-button-500: #0da043;
+  --clr-tag-default: rgba(3, 78, 226, 0.33);
+  --clr-tag-text-default: #4f89fc;
+  --clr-red-400: #eb1e1e;
+  --clr-red-500: #ee3a3a;
+  --clr-blue-400: #116bc5;
+  --clr-blue-500: #147ae1;
   --clr-input-400: #0c0d0d;
   --clr-input-500: #1e1f20;
   --clr-input-border-hov: #0d3d9b;
@@ -1290,11 +1400,18 @@
   :root {
     --clr-background-400: #0e141b;
     --clr-background-500: #17212b;
+    --clr-background-600: #202e3c;
     --clr-text-400: #ebebeb;
     --clr-text-muted: #adadad;
     --clr-text-muted-hov: rgba(128, 128, 128, 0.24);
     --clr-button-400: #0a7b33;
     --clr-button-500: #0da043;
+    --clr-tag-default: rgba(3, 78, 226, 0.33);
+    --clr-tag-text-default: #4f89fc;
+    --clr-red-400: #eb1e1e;
+    --clr-red-500: #ee3a3a;
+    --clr-blue-400: #116bc5;
+    --clr-blue-500: #147ae1;
     --clr-input-400: #0c0d0d;
     --clr-input-500: #1e1f20;
     --clr-input-border-hov: #0d3d9b;
@@ -1311,7 +1428,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 10rem;
+  font: inherit;
 }
 
 body {
@@ -1319,7 +1436,7 @@ body {
   font-size: var(--fs-400);
   color: var(--clr-text-400);
   background-color: var(--clr-background-400);
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 h1,
@@ -1375,6 +1492,15 @@ video {
   border-radius: inherit;
 }
 
+details > summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+details > summary::marker {
+  display: none;
+}
+
 [class*=flex] {
   display: flex;
 }
@@ -1387,9 +1513,18 @@ video {
   display: none !important;
 }
 
+[data-work-condition=false] {
+  opacity: 0.66;
+  pointer-events: none;
+}
+
 @media screen and (max-width: 50em) {
   :root {
     --size-container-main: 100%;
+  }
+
+  .main-container {
+    padding: 0.25em 0.75em;
   }
 
   *[data-flex-collapse] {

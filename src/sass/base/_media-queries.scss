@@ -9,6 +9,10 @@
         }
    }
 
+    .main-container {
+        padding: $mainContainer-mobile-padding;
+    }
+
     *[data-flex-collapse] {
         flex-direction: column !important;
     }

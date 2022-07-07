@@ -1,7 +1,11 @@
 @forward './navbar';
+@forward './user';
 @forward './misc';
 
+@forward './Modules/exercise';
 @forward './Modules/dropdown';
+@forward './Modules/scale-tag';
+@forward './Modules/workout';
 
 @forward './Interactibles/button';
 @forward './Interactibles/input';

@@ -33,3 +33,16 @@ export function toggleDropdowns<T extends Event>(e: T, whitelist: string) {
         });
     }
 }
+
+export function containsEmptyVal<T>(dict: T extends object ? object : object): boolean {
+    const x = Object.values(dict).every(val => {
+        const type = typeof(val);
+
+        if(type === 'number' && val > 0)
+            return true;
+        else if(type === 'string' && String(val).length > 0)
+            return true;
+    });
+
+    return x;
+}

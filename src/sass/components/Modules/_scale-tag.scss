@@ -1,0 +1,20 @@
+.scale-tag {
+    min-width: 7ch;
+    padding: 0.25em 1em;
+    background-color: var(--clr-blue-500);
+
+    .tag__dot {
+        width: 0.75em;
+        aspect-ratio: 1;
+        background-color: red;
+    }
+
+    &[data-variant='default'] {
+        background-color: var(--clr-tag-default);
+        color: var(--clr-tag-text-default);
+
+        .tag__dot {
+            background-color: var(--clr-tag-text-default);
+        }
+    }
+}
