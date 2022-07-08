@@ -1,4 +1,5 @@
-import type { Props_CubeCSS } from "src/types";
+import { PUNCTIONAL_NUMERIC_REGEX } from "../consts";
+import type { DT_Object, Props_CubeCSS } from "../types";
 
 export function propOrDefault<T>(x: T | undefined, def: any): T {
     return x ? x : def;
@@ -34,9 +35,39 @@ export function toggleDropdowns<T extends Event>(e: T, whitelist: string) {
     }
 }
 
-export function containsEmptyVal<T>(dict: T extends object ? object : object): boolean {
-    const x = Object.values(dict).every(val => {
-        const type = typeof(val);
+/**
+ * @param x
+ * @returns 'Louna is my cat' => 'Louna Is My Cat'
+*/
+export function capitalizeText(x: string): string {
+    function capitalizeStr(y: string) {
+        return y.charAt(0).toUpperCase() + y.slice(1);
+    }
+
+    return x.split(' ').map(z => capitalizeStr(z)).join(' ');
+}
+
+export function containsEmptyVal<T>(dict: DT_Object<any>, validators: DT_Object<Function[]>[]= []): boolean {
+    function validate(x: any, validators: Function[]) {
+        if(!validators)
+            return true;
+
+        let bool = false
+
+        validators.forEach(func => {
+            bool = func(x);
+            if(!bool)
+                return;
+        });
+        return bool;
+    }
+    const x = Object.keys(dict).every(key => {
+        const type = typeof(dict[key]);
+        const val = dict[key];
+
+        if((validators as any)[key]) {
+            return validate(val, (validators as any)[key]);
+        }
 
         if(type === 'number' && val > 0)
             return true;
@@ -45,4 +76,8 @@ export function containsEmptyVal<T>(dict: T extends object ? object : object): b
     });
 
     return x;
+}
+
+export function isPunctionalNumeric(x: string) {
+    return PUNCTIONAL_NUMERIC_REGEX.test(x);
 }

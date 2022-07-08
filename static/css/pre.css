@@ -1113,6 +1113,10 @@
   width: max-content;
 }
 
+.height-max-content {
+  height: max-content;
+}
+
 .height-100 {
   height: 100%;
 }

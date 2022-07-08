@@ -4,7 +4,7 @@ import { toggleDropdowns } from "../utils/funcs";
     import Navbar from "../components/Navbar.svelte";
     import { onMount } from "svelte";
     import User from "../components/User.svelte";
-    import { getWorkoutData } from "../localStore/workoutStore";
+    import { getWorkoutData, workoutData } from "../localStore/workoutStore";
 
     onMount(() => {
         window.addEventListener('click', (e) => {
@@ -12,6 +12,10 @@ import { toggleDropdowns } from "../utils/funcs";
         })
 
         getWorkoutData();
+
+        workoutData.subscribe((e) => {
+            localStorage.setItem('workout-data', JSON.stringify(e));
+        })
     })
 </script>
 

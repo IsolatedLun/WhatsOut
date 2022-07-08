@@ -6,7 +6,8 @@
     import Exercise from "../components/Modules/Exercise.svelte";
     import type { Props_Idx } from "src/types";
     import Icon from "../components/Modules/Icon.svelte";
-    import { workoutData } from "../localStore/workoutStore";
+    import { addWorkoutData, workoutData } from "../localStore/workoutStore";
+import { onMount } from "svelte";
 
     function handleSelect(e: any) {
         workoutType = e.detail.text
@@ -21,17 +22,16 @@
         exercises = [...exercises.filter(ex => ex.id !== e.detail.idx)]
     }
 
-    function handleAddWorkout() {
-        workoutData.update((e) => {
-            let workouts = [...e.workouts, { title: workoutType, exercises }];
-
-            return { workouts, user: e.user };
-        })  
-    }
+    onMount(() => {
+        workoutData.subscribe((e) => {
+            workoutId = e.workouts.length + 1
+        })
+    })
 
     let workoutType = 'Any';
     let exercises = [] as Props_Exercise[];
     let showInput = false;
+    let workoutId = 0;
 
 </script>
 
@@ -45,7 +45,7 @@
         </p>
 
         <div class="[ exercises ] [ flex-direction-column gap-1 margin-block-start-2 ]">
-            {#each exercises as exercise (exercise.id)}
+            {#each exercises as exercise}
                 <Exercise on:delete={handleRemoveExercise} props={exercise} />
             {/each}
         </div>
@@ -71,7 +71,12 @@
             variant='blue'
             secondaryVariant='padding-thick'
             workCondition={exercises.length > 0}
-            on:click={handleAddWorkout}
+            on:click={() => addWorkoutData({
+                id: workoutId,
+                exercises,
+                dateDone: new Date(),
+                title: workoutType
+            })}
             cubeClass={{ utilClass: 'margin-block-start-2' }}>
             Add workout
         </Button>

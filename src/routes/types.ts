@@ -4,7 +4,7 @@ export interface Props_Exercise {
     
     sets: number;
     reps: number;
-    weight: number;
+    weight: string;
 
     conversion: string;
 }

@@ -9,6 +9,10 @@ export interface WorkoutData {
 }
 
 export interface Props_Workout {
+    id: number;
+    
     exercises: Props_Exercise[],
     title: string;
+
+    dateDone: Date;
 }

@@ -11,6 +11,7 @@
         compostClass: '',
     };
     export let label = 'Enter Text';
+    export let value: any = '';
 
     const idLabel = cleanLabelText(label);
 </script>
@@ -24,6 +25,7 @@
         data-variant='default'
         type='text'
         on:input
+        bind:value={value}
     />
-    <label for={idLabel} class="[ fs-300 pos-absolute ]">{ label }</label>
+    <label for={idLabel} class="[ fs-300 pos-absolute whitespace-nowrap ]">{ label }</label>
 </div>
