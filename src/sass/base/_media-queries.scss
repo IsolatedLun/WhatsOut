@@ -13,6 +13,19 @@
         padding: $mainContainer-mobile-padding;
     }
 
+    .input-container {
+        label {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            overflow: hidden;
+        }
+
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+
     *[data-flex-collapse] {
         flex-direction: column !important;
     }

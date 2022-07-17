@@ -43,10 +43,10 @@
     $: setAmt = exercise.weight.includes('-') ? exercise.weight.split('-').length : 1;
 </script>
 
-<div class="[ exercise-input-container ] [ flex gap-1 ]">
+<div class="[ exercise-input-container ] [ flex gap-1 ]" data-flex-collapse>
     <TextInput label='Exercise name' on:input={setName} />
 
-    <div class="[ exercise__numerics flex gap-2 ]">
+    <div class="[ exercise__numerics flex gap-2 ]" data-flex-collapse>
         <TextInput label='Weight' on:input={setWeight} />
         <TextInput label='Sets' value={setAmt} on:input={(e) => exercise['sets'] = cleanNumber(e)} />
         <TextInput label='Total reps' on:input={(e) => exercise['reps'] = cleanNumber(e)} />

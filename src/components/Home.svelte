@@ -4,7 +4,9 @@
     import { removeWorkoutData, workoutData } from "../localStore/workoutStore";
     import Workout from "./Modules/Workout.svelte";
     import { onMount } from "svelte";
-import type { Props_Idx } from "src/types";
+    import type { Props_Idx } from "src/types";
+    import Icon from "./Modules/Icon.svelte";
+    import { ICON_PLUS } from "../consts";
 
     function handleRemoveWorkout(e: CustomEvent<Props_Idx>) {
         removeWorkoutData(e.detail.idx);
@@ -27,7 +29,9 @@ import type { Props_Idx } from "src/types";
             <TextInput label='Search workout' />
             <Select  list={['Any', 'Upper body', 'Lower body']} />
 
-            <a href="/add" class="[ button ] [ margin-inline-start-2 ]">New</a>
+            <a href="/add" class="[ button ] [ margin-inline-start-2 ]">
+                New <Icon>{ ICON_PLUS }</Icon>
+            </a>
         </div>
     </header>
 

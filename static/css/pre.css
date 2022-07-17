@@ -1531,6 +1531,17 @@ details > summary::marker {
     padding: 0.25em 0.75em;
   }
 
+  .input-container {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  .input-container label {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+  }
+
   *[data-flex-collapse] {
     flex-direction: column !important;
   }

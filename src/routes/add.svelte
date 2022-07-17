@@ -7,7 +7,8 @@
     import type { Props_Idx } from "src/types";
     import Icon from "../components/Modules/Icon.svelte";
     import { addWorkoutData, workoutData } from "../localStore/workoutStore";
-import { onMount } from "svelte";
+    import { onMount } from "svelte";
+    import { ICON_PLUS } from "../consts";
 
     function handleSelect(e: any) {
         workoutType = e.detail.text
@@ -63,7 +64,7 @@ import { onMount } from "svelte";
             Close
             {/if}
             {#if !showInput}
-                <Icon>{'\uf067'}</Icon>
+                <Icon>{ ICON_PLUS }</Icon>
             {/if}
         </Button>
 
@@ -71,12 +72,16 @@ import { onMount } from "svelte";
             variant='blue'
             secondaryVariant='padding-thick'
             workCondition={exercises.length > 0}
-            on:click={() => addWorkoutData({
-                id: workoutId,
-                exercises,
-                dateDone: new Date(),
-                title: workoutType
-            })}
+            on:click|once={() => {
+                addWorkoutData({
+                    id: workoutId,
+                    exercises,
+                    dateDone: new Date(),
+                    title: workoutType
+                })
+
+                location.href = '/';
+            }}
             cubeClass={{ utilClass: 'margin-block-start-2' }}>
             Add workout
         </Button>

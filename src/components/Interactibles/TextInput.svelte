@@ -27,5 +27,5 @@
         on:input
         bind:value={value}
     />
-    <label for={idLabel} class="[ fs-300 pos-absolute whitespace-nowrap ]">{ label }</label>
+    <label for={idLabel} class="[ fs-300 pos-absolute whitespace-nowrap border-radius-100vw ]">{ label }</label>
 </div>
